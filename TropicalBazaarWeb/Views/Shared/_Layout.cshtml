@@ -1,0 +1,122 @@
+﻿@using TropicalBazaar.Utility
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TropicalBazaar</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    @*Custom CSS*@
+    <link rel="stylesheet" href="~/TropicalBazaarWeb.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    @*Toastr Alerts and Bootstrap Icons *@
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+    @*Google Fonts*@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Hepta+Slab&family=Josefin+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+
+    @*Font Awesome*@
+    <script src="https://kit.fontawesome.com/be70e3448e.js" crossorigin="anonymous"></script>
+
+    @*DataTable.net data table.*@
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <h2 style="margin-top:0.5em" ><a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><span id="tropBrand">TROPICAL</span> <sub>Bazaar</sub></a></h2>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false">
+                    <span class="navbar-toggler-icon" style="font-size:1.5rem;"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="AllProducts">Products</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="Index">Manage Orders</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
+                                @await Component.InvokeAsync("ShoppingCart")
+                            </a>
+                        </li>
+
+
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CMS</a>
+                                <div style="background-color:rgb(105,105,105,0.4); border:2px dashed #FFF6EA" class="dropdown-menu">
+                                    <a class="dropdown-item" style="background-color:transparent; font-weight:bold" asp-area="Admin" asp-controller="Category" asp-action="Index">Categories</a>
+                                    <a class="dropdown-item" style="background-color:transparent; font-weight:bold" asp-area="Admin" asp-controller="Unit" asp-action="Index">Unit</a>
+                                    <a class="dropdown-item" style="background-color:transparent; font-weight:bold" asp-area="Admin" asp-controller="Product" asp-action="Index">Products</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" style="background-color:transparent; font-weight:bold" asp-area="Admin" asp-controller="Company" asp-action="Index">Companies</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" style="background-color:transparent; font-weight:bold" asp-area="Identity" asp-page="/Account/Register">Create User</a>
+
+                                </div>
+                            </li>
+                        }
+
+
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-full">
+        <main role="main" class="pb-3">
+            <partial name="_Notifications" />
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <footer class="container-full footer" color:black">
+        <div class="container-fluid">
+            &copy; 2022 - Tropical / Bazaar
+        </div>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @*Sweet Alerts / Toastr and Data Tables *@
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
+
+    @*Tinymce text editor for description*@
+    <script src="https://cdn.tiny.cloud/1/6f5hb9qtjj1y8tx6oz1ekk48ypxunk27za5kpbn3tbb09gs9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+﻿
+
+<link rel="stylesheet" href="~/css/adminPages.css" asp-append-version="true" />
+	<div class="container my-4 border border-2 border-secondary">
+		<div class="row pt-3">
+			<div class="col-6">
+				<h2 class="text-dark">Company List</h2>
+			</div>
+			<div class="col-6 text-end">
+				<a asp-controller="Company" asp-action="Upsert" 
+				class="btn btn-success"><i class="bi bi-folder-plus"></i>&nbsp;&nbsp; Create New Company</a>
+			</div>	
+		</div>
+
+		<hr/>
+
+	
+		<table id="compTable" class="py-3 table table-striped table-primary table-hover">
+			<thead>
+				<tr>
+					<th>
+						Name
+					</th>
+					<th>
+						Address
+					</th>
+					<th>
+						City
+					</th>
+					<th>
+						State
+					</th>
+					<th>
+						Phone Number
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+
+@section Scripts{
+	<script src="~/js/company.js"></script>
+}

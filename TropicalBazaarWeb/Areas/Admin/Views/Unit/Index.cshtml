@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Unit>
+
+	<link rel="stylesheet" href="~/css/adminPages.css" asp-append-version="true" />
+	<div class="container px-4 mt-4 border border-2 border-secondary">
+		<div class="row pt-3">
+			<div class="col-6">
+				<h2 class="text-dark">Unit List</h2>
+			</div>
+			<div class="col-6 text-end">
+				<a asp-controller="Unit" asp-action="Create" class="btn btn-success"><i class="bi bi-folder-plus"></i>&nbsp;&nbsp; Create New Unit</a>
+			</div>	
+		</div>
+
+		<hr/>
+
+	
+		<table class="table table-bordered table-striped my-5" style="width:100%">
+			<thead>
+				<tr>
+					<th>
+						Unit Name
+					</th>
+			
+					<th>
+
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach(var item in Model){
+					<tr>
+						<td width="75%">
+							@item.Name
+						</td>
+						<td>
+							<div class="d-flex justify-content-evenly">
+							<a asp-controller="Unit" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="bi bi-file-earmark-break"></i>&nbsp;&nbsp; Edit</a>
+							<a asp-controller="Unit" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="bi bi-folder-x"></i>&nbsp;&nbsp; Delete</a>
+							</div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	
+	</div>

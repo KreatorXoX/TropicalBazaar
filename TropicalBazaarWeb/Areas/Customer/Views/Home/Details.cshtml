@@ -1,0 +1,142 @@
+﻿@model TropicalBazaar.Models.ViewModels.ShoppingCart
+
+<link rel="stylesheet" href="~/css/productDetailsPage.css" asp-append-version="true" />
+<body>
+     <form method="post">
+          <input hidden asp-for="ProductId" />
+        <br />
+        <div class="container">
+            <div class="cartHeaderRow">
+                <div class="cartAndIcon">
+                    <p><i id="ic3" style="color:rgb(255, 238, 0);font-size: 1.5rem;margin-left:15px;
+                    --fa-animation-duration: 10s;" class="fa-solid fa-circle-info fa-flip"></i>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="cartProductRow">
+                <div class="productImg">
+                    <img class="img-fluid" src="@Model.Product.ImageUrl" alt="">
+                </div>
+
+                <div class="productDetails">
+                    <p class="text-dark"><small>@Model.Product.Category.Name&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Sold By: @Model.Product.Unit.Name</small></p>
+                    <p style="font-size:2rem;margin-bottom:15px;">@Model.Product.Name</p>
+                   
+                    <p style="font-size: 1.8rem;margin-bottom:20px;">List Price:
+                        <strike>
+                            <span style=" color:rgb(170, 39, 39);">
+                                @Model.Product.ListPrice.ToString("c")
+                            </span>
+                        </strike>
+                    </p>
+                    <p class="text-muted">@Html.Raw(@Model.Product.Description)</p>
+                    <hr />
+                    <div class="QandP text-muted">
+                        <div class="q">
+                            <p>Qty</p>
+                            <p>1-50</p>
+                            <p>50+&nbsp;</p>
+                        </div>
+
+                        <div class="p">
+                            <p>Price</p>
+                            <p>@Model.Product.Price.ToString("c")</p>
+                            <p>@Model.Product.Price50.ToString("c")</p>
+                        </div>
+                        <hr />
+                    </div>
+                    <div>
+
+                        <div class="footerRow">
+                            <div>
+                                <button asp-action="AllProducts" class="backToBtn">Back To List</button>
+                            </div>
+                            <input asp-for="@Model.Count" type="number" name="count" class="form-control" id="count">
+                            <div class="summaryRow">
+                                <button type="submit">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+
+@*<form method="post">
+    <input hidden asp-for="ProductId" />
+        <div class="card container" style="margin-top:10%;margin-bottom:10%">
+            <div class="card-header ml-0 row ">
+                <div class="col-12 col-md-6">
+                    <h1 class="text-success">@Model.Product.Name</h1>
+                    <p class="text-danger">@Model.Product.Category.Name</p>
+                </div>
+              
+            </div>
+            <div class="card-body row container">
+                <div class="container rounded p-2">
+                    <div class="row">
+                        <div class="col-8 col-lg-8">
+
+                            <div class="row pl-2">
+                                <h5 class="text-dark">Sold By : @Model.Product.Unit.Name</h5>
+                            </div>
+                            <div class="row pl-2">
+                                <h5 class="text-muted pb-2">List Price: <strike>@Model.Product.ListPrice.ToString("c")</strike></h5>
+                            </div>
+                            <div class="row text-center pl-2">
+                                <div class="p-1 col-3 bg-dark">
+                                    <div>Quantity</div>
+                                    <div>@Model.Product.Unit.Name</div>
+                                </div>
+                                <div class="p-4 col-2 bg-dark">
+                                    <div>1-50</div>
+                                </div>
+                                <div class="p-4 col-2 bg-dark">
+                                    <div>51-100</div>
+                                </div>
+                            </div>
+                            <div class="row text-center pl-2" style="color:maroon; font-weight:bold">
+                                <div class="p-1 col-3 bg-warning">
+                                    <div>Price</div>
+                                </div>
+                                <div class="p-1 col-2 bg-warning">
+                                    <div>@Model.Product.Price.ToString("c")</div>
+                                </div>
+                                <div class="p-1 col-2 bg-warning">
+                                    <div>@Model.Product.Price50.ToString("c")</div>
+                                </div>
+                            </div>
+                            <div class="row pl-2">
+                                <p class="text-secondary">@Html.Raw(@Model.Product.Description)</p>
+                            </div>
+                            <div class="row pl-2">                   
+                                <div class="col-2">
+                                    <label asp-for="@Model.Count" style="color:black"></label>
+                                    <input asp-for="@Model.Count" class="form-control text-center"  />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 offset-lg-1 text-center">
+                            <img src="@Model.Product.ImageUrl" style="width:100%" class="rounded-pill"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-6 col-md-3 pb-1">
+                        <a class="btn btn-primary form-control " asp-action="AllProducts" style="height:50px;">Back to List</a>
+                    </div>
+                    <div class="col-6 col-md-3 pb-1">
+                        <button type="submit" value="Add to Cart" class="btn btn-success form-control" style="height:50px;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>*@
+</body>

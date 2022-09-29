@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TropicalBazaar.Models.Product>
+
+<link rel="stylesheet" href="~/css/allProductsPage.css" asp-append-version="true" />
+
+<body class="productPage">
+
+	<div class="container row centerDiv">
+
+		@foreach(var product in Model){
+			<div class="col-md-6 col-xl-4 productItem">
+				<div class="profile-card-6">
+					<a asp-action="Details" asp-route-productId="@product.Id" >
+					<img src="@product.ImageUrl" class="img img-fluid ">
+					</a>
+					<div class="profile-name">
+						  @product.Name
+					 </div>
+					<div class="profile-position">@product.Category.Name</div>
+					<div class="profile-overview">
+						<div class="profile-overview">
+							<div class="row text-center">
+
+								<div class="col-lg-6">
+									<h3>List Price</h3>
+									<p> <strike><b>$@product.ListPrice.ToString("0.00")</b></strike></p>
+								</div>
+
+								<div class="col-lg-6">
+									<h3>As low as</h3>
+									<p><b>$@product.Price50.ToString("0.00")</b></p>
+								</div>
+
+								@*<div class="col-lg-12">
+									<a asp-action="Details" class="btn form-control detailsBtn" asp-route-productId="@product.Id"> 
+									Details
+									</a>
+								</div>*@
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+
+</body>

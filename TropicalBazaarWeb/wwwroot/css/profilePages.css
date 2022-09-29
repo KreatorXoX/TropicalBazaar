@@ -1,0 +1,40 @@
+﻿
+/*body {
+    background: rgb(255,246,234);
+    background: linear-gradient(0deg, rgba(255,246,234,1) 0%, rgba(255,246,234,1) 70%, rgba(239,216,140,1) 80%, rgba(214,172,0,1) 90%);
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center
+}*/
+footer{
+    display:none;
+}
+
+#googlebtn {
+    border: none;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    background: rgb(255,200,255);
+    opacity: 0.85;
+    transition:0.5s;
+    padding:0 30px;
+}
+    #googlebtn:hover {
+        opacity: 1;
+        background: rgba(0, 255, 193, 0.88)
+    }
+
+.mainlogin {
+    width: 50%;
+    margin:auto;
+    margin-top:4rem !important;
+    text-align: left;
+    box-shadow: 1px -1px 14px 8px rgba(255,255,255,0.75);
+    -webkit-box-shadow: 1px -1px 14px 8px rgba(255,255,255,0.75);
+    -moz-box-shadow: 1px -1px 14px 8px rgba(255,255,255,0.75);
+}
+
+.mainlogin h1{
+    margin-top:5rem !important;
+}

@@ -1,0 +1,105 @@
+﻿body {
+    background: #ffffff;
+    height: 100%;
+}
+/*footer {
+    background: rgb(152,162,172) !important;
+    color:white !important;
+}*/
+.productItem{
+    display:flex;
+    justify-content:center;
+    
+}
+.centerDiv {
+    margin: auto;
+}
+
+.profile-card-6 {
+    max-width: 150px;
+    max-height: 250px;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.img-fluid {
+    height: 250px;
+}
+
+.profile-card-6 img {
+    transition: all 0.15s linear;
+}
+
+.profile-card-6 .profile-name {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffff;
+    padding: 15px 20px;
+    background: linear-gradient(140deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0) 50%);
+    transition: all 0.15s linear;
+}
+
+.profile-card-6 .profile-position {
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;;
+    left: 30px;
+    top: 45px;
+    transition: all 0.15s linear;
+}
+
+.profile-card-6 .profile-overview {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 0, 0));
+    color: #fff;
+    transition: all 0.15s linear;
+}
+
+    .profile-card-6 .profile-overview h3 {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .profile-card-6 .profile-overview p {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+.profile-card-6:hover img {
+    filter: brightness(60%);
+}
+
+.profile-card-6:hover .profile-name {
+    padding-left: 25px;
+    padding-top: 20px;
+}
+
+.profile-card-6:hover .profile-position {
+    left: 40px;
+}
+
+.profile-card-6:hover .profile-overview {
+    padding-bottom: 25px;
+}
+
+.detailsBtn {
+    border-radius: 10%;
+    color: #FFF6EA;
+    font-family: "Gill Sans",sans-serif;
+    font-weight: 400;
+    background-color: #6170f4;
+    opacity: 0.8;
+}

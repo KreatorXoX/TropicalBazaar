@@ -1,0 +1,110 @@
+﻿@model TropicalBazaar.Models.ViewModels.ProductVM
+<link rel="stylesheet" href="~/css/adminPages.css" asp-append-version="true" />
+			
+<form method="post" enctype="multipart/form-data">
+	<input hidden asp-for="Product.Id" />
+	<input hidden asp-for="Product.ImageUrl" />
+
+
+	<div class="row mb-4">
+		<div class="col-10 px-3">
+			<div class="border border-2 border-secondary p-3 m-4 row">
+				<div class="col-12 pb-2">
+					<h2 class="text-dark">@(Model.Product.Id == 0 ? "Create" : "Update") Product</h2>
+					<hr />
+				</div>
+			
+					
+					<div class="mb-3 col-6">
+						<label asp-for ="Product.Name"></label>
+						<input asp-for="Product.Name" class="form-control"/>
+						<span asp-validation-for="Product.Name" class="text-danger"></span>
+					</div>
+					<div class="mb-3 col-6">
+						<label asp-for ="Product.ListPrice"></label>
+						<input asp-for="Product.ListPrice" class="form-control"/>
+						<span asp-validation-for="Product.ListPrice" class="text-danger"></span>
+					</div>
+					<div class="mb-3 col-6">
+						<label asp-for ="Product.Price"></label>
+						<input asp-for="Product.Price" class="form-control"/>
+						<span asp-validation-for="Product.Price" class="text-danger"></span>
+					</div>
+					<div class="mb-3 col-6">
+						<label asp-for ="Product.Price50"></label>
+						<input asp-for="Product.Price50" class="form-control"/>
+						<span asp-validation-for="Product.Price50" class="text-danger"></span>
+					</div>
+					<div class="mb-3 col-12">
+						<label asp-for ="Product.Description"></label>
+						<textarea id="ttt" asp-for="Product.Description" class="form-control" rows="2"></textarea>
+						<span asp-validation-for="Product.Description" class="text-danger"></span>
+					</div>
+					<div class="mb-3 col-12">
+						<label asp-for ="Product.ImageUrl"></label>
+						<input type="file" name="file" id="uploadBox" class="form-control"/>
+					</div>
+					<div class="mb-3 col-6">
+						<label asp-for ="Product.CategoryId"></label>
+						<select asp-for="Product.CategoryId" asp-items="Model.CategoryList" class="form-select">
+							<option disabled selected> -- Select -- </option>
+						</select>
+						<span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+					</div>
+					<div class="mb-3 col-6">
+						<label asp-for ="Product.UnitId"></label>
+						<select asp-for="Product.UnitId" asp-items="Model.UnitList" class="form-select">
+							<option disabled selected> -- Select -- </option>
+						</select>
+						<span asp-validation-for="Product.UnitId" class="text-danger"></span>
+					</div>
+			
+					<div class=" mt-3 col-12 text-end">
+						@if(Model.Product.Id != 0)
+						{
+							<button type = "submit" class="btn btn-warning" style = "width:150px"> Update </button>
+						}
+						else
+						{
+							<button type = "submit" onclick="return ValidateImgUrl()" class="btn btn-warning" style = "width:150px"> Create </button>
+						}
+						<a asp-controller="Product" asp-action="Index" class="btn btn-info" style = "width:150px">Back to List</a>
+					</div>
+			</div>
+		</div>
+
+		<div class="col-2 mt-4">
+			<img src="@Model.Product.ImageUrl" style="width:75%;border-radius:10%" />
+		</div>
+	</div>	
+</form>
+
+
+@section Scripts{
+	@{
+		<partial name = "_ValidationScriptsPartial" />
+	}
+
+	<script>
+			function ValidateImgUrl(){
+				if(document.getElementById("uploadBox").value == ""){
+
+					Swal.fire({
+							  icon: 'error',
+							  title: 'Oops...',
+							  text: 'Please upload an Image!',
+							});
+							return false;
+				}
+				return true;
+			}
+	</script>
+
+	<script>
+    tinymce.init({
+      selector: '#ttt',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+    });
+  </script>
+}

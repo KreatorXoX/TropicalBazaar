@@ -1,0 +1,20 @@
+﻿@model int
+
+<link rel="stylesheet" href="~/css/profilePages.css" asp-append-version="true" />
+<body>
+    <div class="container row" style="margin:auto">
+        <div class="col-12 text-center">
+            <h1 style="font-weight:bold" class="text-warning text-center">Order Placed Successfully!</h1>
+            <h5 style="font-weight:bold"> Your Order Number is : @Model</h5> 
+            <br />
+            <a asp-controller="Home" asp-action="AllProducts">
+            <img src="~/images/homepage/ex4.jpg" width="65%"/>
+            </a>
+        </div>
+        <div class="col-12 text-center" style="color:maroon">
+            <br />
+            <h5 style="font-weight:bold"> Your order has been placed successfully</h5> 
+            <br />
+        </div>
+    </div> 
+</body>

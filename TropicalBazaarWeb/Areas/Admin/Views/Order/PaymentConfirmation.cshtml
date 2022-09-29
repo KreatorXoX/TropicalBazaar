@@ -1,0 +1,20 @@
+﻿@model int
+
+<link rel="stylesheet" href="~/css/adminPages.css" asp-append-version="true" />
+<body style="background-color:dimgray">
+    <div class="container row" style="margin:auto">
+        <div class="col-12 text-center">
+            <h1 style="font-weight:bold" class="text-warning text-center">Payment is Successful!</h1>
+            <h5 style="font-weight:bold"> Your Order Number is : @Model</h5> 
+            <br />
+            <a asp-controller="Order" asp-action="Details" asp-route-orderId = "@Model">
+            <img src="~/images/homepage/ex4.jpg" width="65%"/>
+            </a>
+        </div>
+        <div class="col-12 text-center" style="color:maroon">
+            <br />
+            <h5 style="font-weight:bold"> Your payment has been issued successfully</h5> 
+            <br />
+        </div>
+    </div> 
+</body>

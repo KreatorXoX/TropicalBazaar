@@ -1,0 +1,29 @@
+﻿
+body {
+    background: linear-gradient(rgba(108, 122, 137,0.7),rgba(0,98,220,0.7));
+    height: 100%;
+    width:100%;
+    margin:auto;
+}
+.container{
+    width:60%;
+    margin-top:5rem !important;
+}
+.table{
+    width:100%;
+}
+.navbar {
+    background: transparent !important;
+}
+
+div.row.container{
+    width:100%;
+}
+
+body > footer {
+    display: none !important;
+}
+.card-header{
+    height:8rem;
+
+}
