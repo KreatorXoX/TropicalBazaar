@@ -22,7 +22,7 @@ namespace TropicalBazaar.Utility
             using (var emailClient = new SmtpClient())
             {
                 emailClient.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                emailClient.Authenticate("ggocer1990@gmail.com", "pgddmtzyajhimeyy");
+                emailClient.Authenticate("####@gmail.com", "##########");
                 emailClient.Send(emailToSend);
                 emailClient.Disconnect(true);
             }
